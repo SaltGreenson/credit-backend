@@ -1,4 +1,4 @@
-# credits-backend
+# Backend credits
 ## Before the start
 You need to add a `/src/keys` folder containing the `index.ts` to your project
 
