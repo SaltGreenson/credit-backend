@@ -21,7 +21,6 @@ export const getContactPersons = async (req: Request, res: Response) => {
 export const createContactPerson = async (req: Request, res: Response) => {
     try {
         const contactPersonRep = await dataSource.getRepository(ContactPersonEntity)
-        console.log('СЮДАААААААААААААААААААААААААААААААААААААААА' + req.body)
         const contactPerson = await contactPersonRep.create(req.body);
         const results = await contactPersonRep.save(contactPerson)
         return res.status(200).json(results)
