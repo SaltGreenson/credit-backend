@@ -2,6 +2,13 @@ import {Request, Response} from "express";
 import {dataSource} from "../data-source";
 import {ContactPersonEntity} from "../entity/ContactPerson.entity";
 
+type ContactPersonBodyType = {
+    LastName: string,
+    Name: string,
+    MiddleName: string,
+    MonthlySalary: number
+}
+
 export const getContactPersons = async (req: Request, res: Response) => {
     try {
         const contactPersonRep = dataSource.getRepository(ContactPersonEntity)
