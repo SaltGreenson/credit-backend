@@ -1,4 +1,4 @@
-import {Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, JoinColumn, ManyToMany, ManyToOne, OneToMany, OneToOne, PrimaryGeneratedColumn} from "typeorm";
 import {ClientEntity} from "./Client.entity";
 import {PaymentEntity} from "./Payment.entity";
 import {ForfeitEntity} from "./Forfeit.entity";
@@ -7,14 +7,6 @@ import {ForfeitEntity} from "./Forfeit.entity";
 export class CreditEntity {
     @PrimaryGeneratedColumn()
     ID: number
-
-    @OneToOne(() => ClientEntity)
-    @JoinColumn()
-    Client: ClientEntity
-
-    @OneToOne(() => ForfeitEntity)
-    @JoinColumn()
-    Forfeit!: ForfeitEntity
 
     @Column("float")
     Sum:number
@@ -30,4 +22,13 @@ export class CreditEntity {
 
     @OneToMany(() => PaymentEntity, (payment) => payment.Credit)
     Payments!: PaymentEntity[]
+    
+    @OneToOne(() => ForfeitEntity)
+    @JoinColumn()
+    Forfeit!: ForfeitEntity
+
+    @OneToOne(() => ClientEntity)
+    @JoinColumn()
+    Client: ClientEntity
+
 }

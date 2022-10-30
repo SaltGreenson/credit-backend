@@ -9,15 +9,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Payment = void 0;
+exports.PaymentEntity = void 0;
 const typeorm_1 = require("typeorm");
-let Payment = class Payment {
+const Credit_entity_1 = require("./Credit.entity");
+let PaymentEntity = class PaymentEntity {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], Payment.prototype, "ID", void 0);
-Payment = __decorate([
+], PaymentEntity.prototype, "ID", void 0);
+__decorate([
+    (0, typeorm_1.Column)("varchar"),
+    __metadata("design:type", String)
+], PaymentEntity.prototype, "Title", void 0);
+__decorate([
+    (0, typeorm_1.Column)("float"),
+    __metadata("design:type", Number)
+], PaymentEntity.prototype, "Amount", void 0);
+__decorate([
+    (0, typeorm_1.Column)("date"),
+    __metadata("design:type", Number)
+], PaymentEntity.prototype, "Date", void 0);
+__decorate([
+    (0, typeorm_1.ManyToOne)(() => Credit_entity_1.CreditEntity, (credit) => credit.Payments),
+    __metadata("design:type", Credit_entity_1.CreditEntity)
+], PaymentEntity.prototype, "Credit", void 0);
+PaymentEntity = __decorate([
     (0, typeorm_1.Entity)("Payment")
-], Payment);
-exports.Payment = Payment;
+], PaymentEntity);
+exports.PaymentEntity = PaymentEntity;

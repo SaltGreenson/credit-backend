@@ -21,6 +21,11 @@ const start = () => __awaiter(void 0, void 0, void 0, function* () {
     const app = (0, express_1.default)();
     app.use(index_1.default);
     app.use(express_1.default.json());
+    app.use(express_1.default.urlencoded({ extended: true }));
+    app.use(function (req, res, next) {
+        res.setHeader("Access-Control-Allow-Origin", "*");
+        return next();
+    });
     yield data_source_1.dataSource.initialize();
     console.log('Data source has been initialized');
     app.listen(config_1.serverPort, () => {

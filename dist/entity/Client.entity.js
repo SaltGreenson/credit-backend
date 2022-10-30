@@ -9,44 +9,44 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Client = void 0;
+exports.ClientEntity = void 0;
 const typeorm_1 = require("typeorm");
 const ContactPerson_entity_1 = require("./ContactPerson.entity");
-let Client = class Client {
+let ClientEntity = class ClientEntity {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], Client.prototype, "ID", void 0);
+], ClientEntity.prototype, "ID", void 0);
 __decorate([
     (0, typeorm_1.Column)("varchar"),
     __metadata("design:type", String)
-], Client.prototype, "LastName", void 0);
+], ClientEntity.prototype, "LastName", void 0);
 __decorate([
     (0, typeorm_1.Column)("varchar"),
     __metadata("design:type", String)
-], Client.prototype, "Name", void 0);
+], ClientEntity.prototype, "Name", void 0);
 __decorate([
     (0, typeorm_1.Column)("varchar"),
     __metadata("design:type", String)
-], Client.prototype, "MiddleName", void 0);
+], ClientEntity.prototype, "MiddleName", void 0);
 __decorate([
     (0, typeorm_1.Column)("varchar"),
     __metadata("design:type", String)
-], Client.prototype, "Address", void 0);
+], ClientEntity.prototype, "Address", void 0);
 __decorate([
     (0, typeorm_1.Column)("varchar"),
     __metadata("design:type", String)
-], Client.prototype, "PhoneNumber", void 0);
+], ClientEntity.prototype, "PhoneNumber", void 0);
 __decorate([
     (0, typeorm_1.Column)("varchar"),
     __metadata("design:type", String)
-], Client.prototype, "KindOfProperty", void 0);
+], ClientEntity.prototype, "KindOfProperty", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => ContactPerson_entity_1.ContactPerson, (contactPerson) => contactPerson.Clients),
-    __metadata("design:type", ContactPerson_entity_1.ContactPerson)
-], Client.prototype, "ContactPerson", void 0);
-Client = __decorate([
+    (0, typeorm_1.ManyToOne)(() => ContactPerson_entity_1.ContactPersonEntity, (contactPerson) => contactPerson.Clients),
+    __metadata("design:type", ContactPerson_entity_1.ContactPersonEntity)
+], ClientEntity.prototype, "ContactPerson", void 0);
+ClientEntity = __decorate([
     (0, typeorm_1.Entity)("Client")
-], Client);
-exports.Client = Client;
+], ClientEntity);
+exports.ClientEntity = ClientEntity;

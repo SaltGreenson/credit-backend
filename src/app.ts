@@ -9,9 +9,9 @@ const start = async () => {
 
     const app = express();
 
-    app.use(routes)
     app.use(express.json())
-    app.use(express.urlencoded({extended: true}))
+
+    app.use(routes)
 
     app.use(function (req, res, next) {
         res.setHeader("Access-Control-Allow-Origin", "*");

@@ -1,12 +1,14 @@
 import {Router} from "express";
-import {changeClient, deleteClient, getClients} from "../controllers/clients";
+import {createClient, changeClient, deleteClient, getClients} from "../controllers/clients";
 
 const router = Router()
 
 router.get('/', getClients)
 
-router.delete('/delete/:id', deleteClient)
+router.post('/', createClient);
 
-router.post('/change', changeClient)
+router.delete('/:id', deleteClient)
+
+router.put('/:id', changeClient)
 
 export default router

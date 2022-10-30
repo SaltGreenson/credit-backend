@@ -9,36 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ContactPersonEntity = void 0;
+exports.ForfeitEntity = void 0;
 const typeorm_1 = require("typeorm");
-const Client_entity_1 = require("./Client.entity");
-let ContactPersonEntity = class ContactPersonEntity {
+let ForfeitEntity = class ForfeitEntity {
 };
 __decorate([
     (0, typeorm_1.PrimaryGeneratedColumn)(),
     __metadata("design:type", Number)
-], ContactPersonEntity.prototype, "ID", void 0);
-__decorate([
-    (0, typeorm_1.Column)("varchar"),
-    __metadata("design:type", String)
-], ContactPersonEntity.prototype, "LastName", void 0);
-__decorate([
-    (0, typeorm_1.Column)("varchar"),
-    __metadata("design:type", String)
-], ContactPersonEntity.prototype, "Name", void 0);
-__decorate([
-    (0, typeorm_1.Column)("varchar"),
-    __metadata("design:type", String)
-], ContactPersonEntity.prototype, "MiddleName", void 0);
+], ForfeitEntity.prototype, "ID", void 0);
 __decorate([
     (0, typeorm_1.Column)("float"),
-    __metadata("design:type", String)
-], ContactPersonEntity.prototype, "MonthlySalary", void 0);
+    __metadata("design:type", Number)
+], ForfeitEntity.prototype, "Sum", void 0);
 __decorate([
-    (0, typeorm_1.OneToMany)(() => Client_entity_1.ClientEntity, (client) => client.ContactPerson),
-    __metadata("design:type", Array)
-], ContactPersonEntity.prototype, "Clients", void 0);
-ContactPersonEntity = __decorate([
-    (0, typeorm_1.Entity)("ContactPerson")
-], ContactPersonEntity);
-exports.ContactPersonEntity = ContactPersonEntity;
+    (0, typeorm_1.Column)("varchar"),
+    __metadata("design:type", String)
+], ForfeitEntity.prototype, "TypeOfForfeit", void 0);
+ForfeitEntity = __decorate([
+    (0, typeorm_1.Entity)("Forfeit")
+], ForfeitEntity);
+exports.ForfeitEntity = ForfeitEntity;
