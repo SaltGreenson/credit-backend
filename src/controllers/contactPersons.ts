@@ -20,9 +20,10 @@ export const getContactPersons = async (req: Request, res: Response) => {
 
 export const createContactPerson = async (req: Request, res: Response) => {
     try {
-        const clientRep = await dataSource.getRepository(ContactPersonEntity)
-        const client = await clientRep.create(req.body);
-        const results = await dataSource.getRepository(ContactPersonEntity).save(client)
+        const contactPersonRep = await dataSource.getRepository(ContactPersonEntity)
+        console.log('СЮДАААААААААААААААААААААААААААААААААААААААА' + req.body)
+        const contactPerson = await contactPersonRep.create(req.body);
+        const results = await contactPersonRep.save(contactPerson)
         return res.status(200).json(results)
     } catch (err) {
         console.error(err)
@@ -32,9 +33,9 @@ export const createContactPerson = async (req: Request, res: Response) => {
 
 export const changeContactPerson = async (req: Request, res: Response) => {
     try {
-        const clientRep = dataSource.getRepository(ContactPersonEntity)
+        const contactPersonRep = dataSource.getRepository(ContactPersonEntity)
 
-        const results = await clientRep.update(req.params.id, req.body)
+        const results = await contactPersonRep.update(req.params.id, req.body)
         
         return res.status(200).json(results)
 
@@ -46,8 +47,8 @@ export const changeContactPerson = async (req: Request, res: Response) => {
 export const deleteContactPerson = async (req: Request, res: Response) => 
 {
     try {
-        const clientRep = dataSource.getRepository(ContactPersonEntity)
-        const result = await clientRep.delete(req.params.id)
+        const contactPersonRep = dataSource.getRepository(ContactPersonEntity)
+        const result = await contactPersonRep.delete(req.params.id)
         res.status(200).json(result)
     } catch (err) {
         console.log(err)
