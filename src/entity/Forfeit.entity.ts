@@ -1,4 +1,5 @@
-import {Column, Entity, PrimaryGeneratedColumn} from "typeorm";
+import {Column, Entity, PrimaryGeneratedColumn, OneToMany} from "typeorm";
+import { CreditEntity } from "./Credit.entity";
 
 @Entity("Forfeit")
 export class ForfeitEntity {
@@ -10,4 +11,5 @@ export class ForfeitEntity {
 
     @Column("varchar")
     TypeOfForfeit!: string
+
 }

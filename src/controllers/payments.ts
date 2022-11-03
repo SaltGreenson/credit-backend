@@ -59,6 +59,7 @@ export const changePayment = async (req: Request, res: Response) => {
         return res.status(200).json(results)
     } catch (err) {
         console.log(err)
+        res.status(500).end()
     }
 }
 
